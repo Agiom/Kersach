@@ -1,0 +1,35 @@
+﻿using RecreationСenter.Core;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+
+namespace RecreationСenter.View.Apartment
+{
+    /// <summary>
+    /// Логика взаимодействия для MainRoomsPage.xaml
+    /// </summary>
+    public partial class MainRoomsPage : Page
+    {
+        public MainRoomsPage()
+        {
+            InitializeComponent();
+            DataRoomInfo.ItemsSource = Connect.DB.Rooms.ToList();
+        }
+
+        private void BtnUpdateRoomInfo_Click(object sender, RoutedEventArgs e)
+        {
+            Connect.MyFrame.Navigate(new UpdateRoomsPage(sender));
+        }
+    }
+}
